@@ -1594,3 +1594,18 @@ Processing StoreController#add_to_cart (for 127.0.0.1 at 2010-06-20 11:15:20) [P
 Rendering template within layouts/store
 Rendering store/add_to_cart
 Completed in 15ms (View: 2, DB: 0) | 200 OK [http://localhost/store/add_to_cart/5]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2010-06-20 17:19:40) [POST]
+  Parameters: {"authenticity_token"=>"0q+JAIEylrhWCmd9F9zMYs4vLy3qU/8Adyvv78OsJZI=", "id"=>"5"}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 5) [0m
+Rendering template within layouts/store
+Rendering store/add_to_cart
+Completed in 79ms (View: 20, DB: 1) | 200 OK [http://localhost/store/add_to_cart/5]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2010-06-20 17:19:54) [GET]
+  [4;35;1mProduct Load (1.0ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Completed in 29ms (View: 24, DB: 1) | 200 OK [http://localhost/store]
