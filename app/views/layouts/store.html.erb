@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
 	<title>Pragprog Books Online Store</title>
-	<%= stylesheet_link_tag "depot" , :media => "all" %>
+	<%= stylesheet_link_tag 'depot', :media => 'all' %>
 </head>
 <body id="store">
 	<div id="banner">
@@ -11,8 +11,12 @@
 	<%= @page_title || "Pragmatic Bookshelf" %>
 	</div>
 	<div id="columns">
-		<div id="side">
-			<a href="http://www....">Home</a><br />
+	  <div id="side">
+   			<div id="cart">
+		    		<%= render(:partial=> "cart", :object=> @cart) %>
+		    </div>
+
+			<a href="http://localhost:3000/store">Home</a><br />
 			<a href="http://www..../faq">Questions</a><br />
 			<a href="http://www..../news">News</a><br />
 			<a href="http://www..../contact">Contact</a><br />
