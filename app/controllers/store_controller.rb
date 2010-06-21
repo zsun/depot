@@ -11,7 +11,10 @@ class StoreController < ApplicationController
     @cart=find_cart
     puts "found product: #{product.title}"
     @cart.add_product(product)
-    redirect_to_index
+    respond_to do |format|
+      format.js
+    end
+    #redirect_to_index
   rescue ActiveRecord::RecordNotFound
     logger.error("Attempt to access invalid product: #{params[:id]}")
     flash[:notice]="Invalid product"
