@@ -9,8 +9,18 @@ class StoreController < ApplicationController
     @cart=find_cart
     puts "found product: #{product.title}"
     @cart.add_product(product)
-  end
+  rescue ActiveRecord::RecordNotFound
+    logger.error("Attempt to access invalid product: #{params[:id]}")
+    flash[:notice]="Invalid product"
+    redirect_to :action=>"index"
 
+  end
+  def empty_cart
+    session[:cart]=nil
+    # flash[:notice] = "your cart is currently empty"
+    #redirect_to :action=>'index'
+    redirect_to_index("your cart is currently empty")
+  end
 
   private
   def find_cart
@@ -23,6 +33,9 @@ class StoreController < ApplicationController
     end
     session[:cart]
   end
-
+ def redirect_to_index(msg)
+   flash[:notice]=msg
+   redirect_to :action=>'index'
+ end
 
 end
