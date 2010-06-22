@@ -8,14 +8,22 @@ class Cart
     current_item = @items.find{|item| item.product==product}
     if current_item
       current_item.increment_quantity
+    else
+      current_item=CartItem.new(product)
+      @items << current_item
     end
+
     puts "@items: #{@items}"
     puts "current_item : #{current_item}"
 
-    @items << CartItem.new(product)
+    #@items << CartItem.new(product)
+    current_item
   end
   def total_price
     @items.sum {|item| item.price}
+  end
+  def total_items
+    @items.sum { | item | item.quantity}
   end
 
 

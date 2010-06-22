@@ -10,9 +10,12 @@ class StoreController < ApplicationController
     product=Product.find(params[:id])
     @cart=find_cart
     puts "found product: #{product.title}"
-    @cart.add_product(product)
+    # @current_item is an instance variable, has the info about the current info, so we can pass on to the tempatle
+    @current_item = @cart.add_product(product)
     respond_to do |format|
-      format.js
+
+      format.js if request.xhr?
+      format.html {redirect_to_index}
     end
     #redirect_to_index
   rescue ActiveRecord::RecordNotFound
