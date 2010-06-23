@@ -1,3 +1,8 @@
+
+# this is a kind of hack, it will do a preclean up, i.e. hide all the
+# html items that matches a particular css style
+page.select("div#notice").each { |div| div.hide }
+
 page.replace_html("cart", :partial=> "cart", :object=>@cart)
 # tag the currently changed item with an it="current_item"
 page[:cart].visual_effect :blind_down if @cart.total_items == 1
