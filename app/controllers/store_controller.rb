@@ -1,4 +1,8 @@
 class StoreController < ApplicationController
+
+ # where does this line go to?
+ # :before_filter :find_cart, :except => :empty_cart
+
  def index
     @products=Product.find_product_for_sale
     @cart=find_cart
@@ -52,7 +56,8 @@ class StoreController < ApplicationController
 
  private
  def find_cart
-    session[:cart] ||= Cart.new
+   # session[:cart] ||= Cart.new
+   @cart=( session[:cart] ||= Cart.new)
  end
 
  def find_cart_verbose
