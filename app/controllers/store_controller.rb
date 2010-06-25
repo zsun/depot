@@ -67,4 +67,7 @@ class StoreController < ApplicationController
    redirect_to :action=>'index'
  end
 
+ protected
+ def authorize
+ end
 end
