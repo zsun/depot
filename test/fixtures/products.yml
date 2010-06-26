@@ -9,3 +9,13 @@ two:
   title: MyString
   description: MyText
   image_url: MyString
+
+ruby_book:
+  title: Programming book
+  description: Book for testing
+  image_url: ruby.png
+
+rails_book:
+  title: Rails book
+  description: Book for testing Rails
+  image_url: rails.png
